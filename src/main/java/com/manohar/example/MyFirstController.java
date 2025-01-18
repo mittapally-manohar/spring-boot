@@ -26,4 +26,10 @@ public class MyFirstController {
     public String saveOrder(@RequestBody Order order) {
         return "Request accepted and the message is : " + order.toString();
     }
+
+    @PostMapping("/post-order-record")
+    public String saveOrderRecord(@RequestBody OrderRecord order) {
+        return "Request accepted and the message is : " + order.toString();
+    }
+
 }
