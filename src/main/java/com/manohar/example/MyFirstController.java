@@ -37,6 +37,7 @@ public class MyFirstController {
         return "hello from my first controller with path variable: " + userName;
     }
 
+    //http://localhost:8080/hello-param?user-name=manohar&user-lastname=mittapally
     @GetMapping("/hello-param")
     public String sayHelloRequestParam(@RequestParam("user-name") String userName, @RequestParam("user-lastname") String userLastName) {
         return "hello from my first controller with path variable: " + userName + " lastname: " + userLastName;
