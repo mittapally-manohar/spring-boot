@@ -36,4 +36,9 @@ public class MyFirstController {
     public String sayHelloPathVariable(@PathVariable("user-name") String userName) {
         return "hello from my first controller with path variable: " + userName;
     }
+
+    @GetMapping("/hello-param")
+    public String sayHelloRequestParam(@RequestParam("user-name") String userName, @RequestParam("user-lastname") String userLastName) {
+        return "hello from my first controller with path variable: " + userName + " lastname: " + userLastName;
+    }
 }
