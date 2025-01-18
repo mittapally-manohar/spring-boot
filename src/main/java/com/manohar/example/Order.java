@@ -1,8 +1,15 @@
 package com.manohar.example;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Order {
+    @JsonProperty("c-name")
     private String customerName;
+
+    @JsonProperty("p-name")
     private String productName;
+
+    @JsonProperty
     private String quantity;
 
     public String getCustomerName() {
