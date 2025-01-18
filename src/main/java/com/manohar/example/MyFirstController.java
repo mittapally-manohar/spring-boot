@@ -32,4 +32,8 @@ public class MyFirstController {
         return "Request accepted and the message is : " + order.toString();
     }
 
+    @GetMapping("/hello/{user-name}")
+    public String sayHelloPathVariable(@PathVariable("user-name") String userName) {
+        return "hello from my first controller with path variable: " + userName;
+    }
 }
