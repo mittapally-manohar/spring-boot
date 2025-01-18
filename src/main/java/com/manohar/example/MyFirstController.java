@@ -3,43 +3,47 @@ package com.manohar.example;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class MyFirstController {
+    private final StudentRepository studentRepository;
 
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "hello from my first controller";
+    public MyFirstController(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
     }
 
-    @GetMapping("/hello2")
+    @PostMapping("/students")
+    public Student saveStudent(
+            @RequestBody Student student
+    ) {
+        return studentRepository.save(student);
+    }
+
+    @GetMapping("/students")
+    public List<Student> getStudents() {
+        return studentRepository.findAll();
+    }
+
+    @GetMapping("/students/{student-id}")
+    public Student getStudentByID(
+            @PathVariable("student-id") Integer id
+    ) {
+        return studentRepository.findById(id).orElse(new Student());
+    }
+
+    @GetMapping("/students/search/{name}")
+    public List<Student> getStudentByName(
+            @PathVariable("name") String name
+    ) {
+        return studentRepository.findAllByFirstNameContaining(name);
+    }
+
+    @DeleteMapping("/students/{student-id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public String sayHello2() {
-        return "hello-2 from my first controller";
-    }
-
-    @PostMapping("/post")
-    public String saveHello(@RequestBody String message) {
-        return "Request accepted and the message is : " + message;
-    }
-
-    @PostMapping("/post-order")
-    public String saveOrder(@RequestBody Order order) {
-        return "Request accepted and the message is : " + order.toString();
-    }
-
-    @PostMapping("/post-order-record")
-    public String saveOrderRecord(@RequestBody OrderRecord order) {
-        return "Request accepted and the message is : " + order.toString();
-    }
-
-    @GetMapping("/hello/{user-name}")
-    public String sayHelloPathVariable(@PathVariable("user-name") String userName) {
-        return "hello from my first controller with path variable: " + userName;
-    }
-
-    //http://localhost:8080/hello-param?user-name=manohar&user-lastname=mittapally
-    @GetMapping("/hello-param")
-    public String sayHelloRequestParam(@RequestParam("user-name") String userName, @RequestParam("user-lastname") String userLastName) {
-        return "hello from my first controller with path variable: " + userName + " lastname: " + userLastName;
+    public void deleteStudentByID(
+            @PathVariable("student-id") Integer id
+    ) {
+        studentRepository.deleteById(id);
     }
 }
