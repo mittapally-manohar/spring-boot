@@ -1,4 +1,4 @@
-package com.manohar.example;
+package com.manohar.example.student;
 
 public record StudentResponseDto(String firstName, String lastName) {
 }

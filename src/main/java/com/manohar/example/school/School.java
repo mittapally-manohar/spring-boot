@@ -1,6 +1,7 @@
-package com.manohar.example;
+package com.manohar.example.school;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.manohar.example.student.Student;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;

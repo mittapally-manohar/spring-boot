@@ -1,4 +1,4 @@
-package com.manohar.example;
+package com.manohar.example.student;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,8 @@
-package com.manohar.example;
+package com.manohar.example.student;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.manohar.example.studentprofile.StudentProfile;
+import com.manohar.example.school.School;
 import jakarta.persistence.*;
 
 @Entity

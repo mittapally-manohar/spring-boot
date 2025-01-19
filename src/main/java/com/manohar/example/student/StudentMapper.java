@@ -1,5 +1,6 @@
-package com.manohar.example;
+package com.manohar.example.student;
 
+import com.manohar.example.school.School;
 import org.springframework.stereotype.Service;
 
 @Service

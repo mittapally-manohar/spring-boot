@@ -1,4 +1,4 @@
-package com.manohar.example;
+package com.manohar.example.school;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

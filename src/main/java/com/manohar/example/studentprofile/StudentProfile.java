@@ -1,5 +1,6 @@
-package com.manohar.example;
+package com.manohar.example.studentprofile;
 
+import com.manohar.example.student.Student;
 import jakarta.persistence.*;
 
 @Entity
