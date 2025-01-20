@@ -1,4 +1,6 @@
 package com.manohar.example.student;
 
-public record StudentDto(String firstName, String lastName, String email, int schoolId) {
+import jakarta.validation.constraints.NotEmpty;
+
+public record StudentDto(@NotEmpty String firstName, @NotEmpty String lastName, String email, int schoolId) {
 }
